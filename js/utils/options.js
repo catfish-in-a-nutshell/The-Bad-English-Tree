@@ -34,7 +34,28 @@ function updateStyle() {
 	css.href = options.oldStyle ? "oldStyle.css" : "style.css";
 	needCanvasUpdate = true;
 }
+
+var lasthqClickTimestamp = -1
+var hqClicks = 0
+
 function changeTreeQuality() {
+	let t = Date.now() / 1000
+
+	if (lasthqClickTimestamp < 0) {
+		lasthqClickTimestamp = Date.now() / 1000.0
+		hqClicks = 1
+	} else {
+		if (t - lasthqClickTimestamp > 60) {
+			lasthqClickTimestamp = t
+			hqClicks = 1
+		} else {
+			hqClicks += 1
+			if (hqClicks >= 10) {
+				player.e.p11_buffed = true
+			}
+		}
+	}
+
 	var on = options.hqTree;
 	document.body.style.setProperty('--hqProperty1', on ? "2px solid" : "4px solid");
 	document.body.style.setProperty('--hqProperty2a', on ? "-4px -4px 4px rgba(0, 0, 0, 0.25) inset" : "-4px -4px 4px rgba(0, 0, 0, 0) inset");
