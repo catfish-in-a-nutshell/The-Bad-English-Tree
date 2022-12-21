@@ -71,8 +71,11 @@ var displayThings = [
 			Current endgame: 5 endgames<br><br>`
 	},
 	() => {
-		return player.p.paused ? translator(["游戏已暂停(按 w 继续)", "Game paused (w to resume)"]) : 
+		let ptext = player.p.paused ? translator(["游戏已暂停(按 w 继续)", "Game paused (w to resume)"]) : 
 			translator(["按 w 暂停", "Press w to pause"])
+
+		let p2text = translator(["你也可以在设置中随时暂停或继续游戏", "You can also pause/resume the game in options menu"])
+		return `${ptext} <br> ${p2text}`
 	},
 	() => {
 		return translator([

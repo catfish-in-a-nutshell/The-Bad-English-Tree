@@ -67,6 +67,10 @@ function toggleAuto(toggle) {
 	needCanvasUpdate=true
 }
 
+function switchPause() {
+	player.p.paused = !player.p.paused
+}
+
 const MS_DISPLAYS = ["ALL", "LAST, AUTO, INCOMPLETE", "AUTOMATION, INCOMPLETE", "INCOMPLETE", "NONE"];
 
 const MS_SETTINGS = ["always", "last", "automation", "incomplete", "never"];
