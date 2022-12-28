@@ -335,7 +335,7 @@ addLayer("p", {
                 `
             },
             effect() {
-                let buff = player.time_since_start.gte(60) ? d(1) : player.time_since_start.pow(1.6)
+                let buff = player.time_since_start.gte(60) ? d(1) : player.time_since_start.pow(1.75)
                 return getBuyableAmount("p", 11).add(1).pow(0.75).mul(buff)
             },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
@@ -377,7 +377,7 @@ addLayer("p", {
             },
             canAfford() { return player[this.layer].points.gte(this.cost()) },
             effect() {
-                let buff = player.time_since_start.gte(60) ? d(1) : player.time_since_start.pow(1.5)
+                let buff = player.time_since_start.gte(60) ? d(1) : player.time_since_start.pow(1.75)
                 return getBuyableAmount("p", 12).add(1).pow(0.75).mul(buff)
             },
             buy() {
